@@ -10,11 +10,13 @@ import (
 
 type SafeCounter struct {
 	mu    sync.Mutex
+	total int
 	resul map[int]int
 }
 
 func (c *SafeCounter) Inc(key int) {
 	c.mu.Lock()
+	c.total++
 	// Lock so only one goroutine at a time can access the map c.v.
 	if _, found := c.resul[key]; !found {
 		c.resul[key] = 1
@@ -52,6 +54,7 @@ func Execute(address string, requests int, concurrency int) {
 	finish := time.Since(start)
 
 	fmt.Printf("\n\nTime : %s", finish)
+	fmt.Printf("\nTotal de Requisições : %d", resul.total)
 	for key, value := range resul.resul {
 		fmt.Printf("\nCode %d -> %d", key, value)
 	}
