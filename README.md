@@ -10,7 +10,6 @@
     --requests: Número total de requests.
     --concurrency: Número de chamadas simultâneas.
     
-    
     Execução do Teste:
     
     Realizar requests HTTP para a URL especificada.
@@ -29,11 +28,12 @@
 
 **Como executar localmente**
 
-  1 - Após baixar o projeto localmente, executar o build do arquivo docker: <code>docker build --tag stress-test .</code> <br/>
+  1 - Após baixar o projeto localmente, executar o build do arquivo docker: <code>docker build --tag stress-test .</code><br/>
   2 - Após isso, basta apenas executar o container com os paramentros necessários para a execução: <code>docker run stress-test execute --url=http://www.uol.com.br --requests=1000 --concurrency=10</code>
 
   Exemplo de chamada: 
-
+        ![alt text](https://github.com/wiggers/goexpert-desaio-2-stress-test/blob/main/exemplo.png)
+        
   
       
 
